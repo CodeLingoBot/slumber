@@ -28,7 +28,7 @@ func New(options *Options, defaultRenderType string) *Renderer {
 	return &Renderer{r, options, defaultRenderType}
 }
 
-// HandlerWithNext Returns a middleware HandlerFunc that saves the Render object into request context
+// Handler Returns a middleware HandlerFunc that saves the Render object into request context
 func (renderer *Renderer) Handler(w http.ResponseWriter, req *http.Request, next http.HandlerFunc, ctx domain.IContext) {
 	SetRendererCtx(ctx, req, renderer)
 	next(w, req)
